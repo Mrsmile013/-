@@ -15,12 +15,12 @@
 #include <stdlib.h>
 
 /*.h声明*/
-unsigned char my_int_to_ascii(unsigned char *array,  int value);
+unsigned char *my_int_to_ascii(unsigned char *array,  int value);
 /*.h声明*/
 
 
 
-unsigned char my_int_to_ascii(unsigned char *array,  int value)
+unsigned char *my_int_to_ascii(unsigned char *array,  int value)
 {
 	unsigned char digits_lenth = 17;
 	unsigned char i = 0;
@@ -58,5 +58,5 @@ unsigned char my_int_to_ascii(unsigned char *array,  int value)
 	{
 		*(array + i) = 0x00;//不同lcd 空格的代码不同，改这里即可
 	}
-	return *array;
+	return array;//返回数组指针
 }

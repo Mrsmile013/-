@@ -3,7 +3,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-unsigned char my_int_to_ascii(unsigned char *array, int value);
+unsigned char *my_int_to_ascii(unsigned char *array, int value);
 
 void main(void)
 {
@@ -11,8 +11,8 @@ void main(void)
 	unsigned char mynum[17];
 	unsigned char mynum2[17];
 	fuck = 301;
-	my_int_to_ascii(mynum, fuck);
-	memcpy(mynum2, mynum, 17);
+	
+	memcpy(mynum2, my_int_to_ascii(mynum, fuck) , 17);//返回数组指针
 	while (1);
 }
 /*
@@ -26,7 +26,7 @@ void main(void)
 		array的数组指针
   data：2022.12.14
 */
-unsigned char my_int_to_ascii(unsigned char *array,  int value)
+unsigned char *my_int_to_ascii(unsigned char *array,  int value)
 {
 	unsigned char digits_lenth = 17;
 	unsigned char i = 0;
@@ -64,5 +64,5 @@ unsigned char my_int_to_ascii(unsigned char *array,  int value)
 	{
 		*(array + i) = 0x00;//不同lcd 空格的代码不同，改这里即可
 	}
-	return *array;
+	return array;//返回数组指针
 }
